@@ -109,7 +109,7 @@ namespace WhoIsCheating
 
             if (fpPlatformRenderer != null)
             {
-                if (rig.concatStringOfCosmeticsAllowed.Contains("FIRST LOGIN"))
+                if (rig.concatStringOfCosmeticsAllowed.Contains("FIRST LOGIN") | rig.OwningNetPlayer.GetPlayerRef().CustomProperties.Count > 1)
                 {
                     fpPlatformRenderer.material.mainTexture = pcTexture;
                 }
