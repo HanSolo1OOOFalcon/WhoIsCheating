@@ -11,7 +11,7 @@ namespace WhoIsCheating
     [BepInPlugin(PluginInfo.GUID, PluginInfo.Name, PluginInfo.Version)]
     public class Plugin : BaseUnityPlugin
     {
-        Plugin()
+        void Start()
         {
             HarmonyPatches.ApplyHarmonyPatches();
 	    ExitGames.Client.Photon.Hashtable properties = new ExitGames.Client.Photon.Hashtable();
