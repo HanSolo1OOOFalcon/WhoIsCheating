@@ -1,8 +1,5 @@
-﻿using System;
-using BepInEx;
-using UnityEngine;
-using Utilla;
-using WhoIsTalking;
+﻿using BepInEx;
+using Photon.Pun;
 
 namespace WhoIsCheating
 {
@@ -14,7 +11,7 @@ namespace WhoIsCheating
         void Start()
         {
             HarmonyPatches.ApplyHarmonyPatches();
-	    ExitGames.Client.Photon.Hashtable properties = new ExitGames.Client.Photon.Hashtable();
+	        ExitGames.Client.Photon.Hashtable properties = new ExitGames.Client.Photon.Hashtable();
             properties.Add("cheese is gouda", PluginInfo.Name);
             PhotonNetwork.LocalPlayer.SetCustomProperties(properties);
         }
