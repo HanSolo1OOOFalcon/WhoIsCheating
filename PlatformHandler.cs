@@ -1,9 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using UnityEngine;
 using WhoIsTalking;
 namespace WhoIsCheating
@@ -13,7 +9,7 @@ namespace WhoIsCheating
         public NameTagHandler nameTagHandler;
         public VRRig rig;
 
-        public Texture2D pcTexture, steamTexture, standaloneTexture;
+        public Texture2D pcTexture, steamTexture, standaloneTexture, unknownTexture;
 
         public GameObject fpPlatformIcon, tpPlatformIcon, firstPersonNameTag, thirdPersonNameTag;
 
@@ -26,6 +22,7 @@ namespace WhoIsCheating
             pcTexture = LoadEmbeddedImage("WhoIsCheating.Assets.PCIcon.png");
             steamTexture = LoadEmbeddedImage("WhoIsCheating.Assets.SteamIcon.png");
             standaloneTexture = LoadEmbeddedImage("WhoIsCheating.Assets.MetaIcon.png");
+            unknownTexture = LoadEmbeddedImage("WhoIsCheating.Assets.UnknownIcon.png");
             CreatePlatformIcons();
         }
 
@@ -103,8 +100,16 @@ namespace WhoIsCheating
             else if (concat.Contains("FIRST LOGIN") || rig.OwningNetPlayer.GetPlayerRef().CustomProperties.Count() >= 2)
             {
                 return pcTexture;
+            } 
+            // LMAKT. was the item ID for the WitchBlood Tome https://gorillatag.fandom.com/wiki/WitchBlood_Tome
+            // which was only obtainable on Quest due to being a tie-in with a Quest-only game
+            // that checked your playtime via an integration. So this is a 100% sure-fire check for Quest, although rare
+            // Add extra checks here if/when they are possible
+            else if (concat.Contains("LMAKT."))
+            {
+                return standaloneTexture;
             }
-            return standaloneTexture;
+            return unknownTexture;
         }
 
         //this just makes it more readable -Graze

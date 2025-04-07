@@ -1,20 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
 		<TargetFramework>netstandard2.1</TargetFramework>
 		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+        <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Assets\MetaIcon.png" />
     <None Remove="Assets\PCIcon.png" />
     <None Remove="Assets\SteamIcon.png" />
+    <None Remove="Assets\UnknownIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Assets\MetaIcon.png" />
     <EmbeddedResource Include="Assets\PCIcon.png" />
     <EmbeddedResource Include="Assets\SteamIcon.png" />
+    <EmbeddedResource Include="Assets\UnknownIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
